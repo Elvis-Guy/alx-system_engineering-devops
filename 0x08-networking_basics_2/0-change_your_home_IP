@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Update the hosts file to map localhost to 127.0.0.2 and facebook.com to 8.8.8.8
-sudo cp /etc/hosts /etc/hosts.bak
-sudo sed -i 's/^127\.0\.0\.1[[:space:]]\+localhost$/127.0.0.2 localhost/' /etc/hosts
-sudo sed -i 's/^.*facebook\.com.*$/8.8.8.8 facebook.com/' /etc/hosts
-sudo service networking restart
+
+cp /etc/hosts ~/hosts.new
+sed -i s/^127.*localhost$/127.0.0.2\ localhost/ ~/hosts.new
+echo "8.8.8.8 facebook.com" >> ~/hosts.new
+cat ~/hosts.new > /etc/hosts
