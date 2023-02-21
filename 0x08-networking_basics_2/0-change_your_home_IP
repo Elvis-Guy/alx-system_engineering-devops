@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# Change localhost to 127.0.0.2
-# Change facebook.com to 8.8.8.8
+# Update the hosts file to map localhost to 127.0.0.2 and facebook.com to 8.8.8.8
 
-cp /etc/hosts ~/hosts.new
-sed -i 's/127.*$/127.0.0.2 localhost\n8.8.8.8 facebook.com/' ~/hosts.new
-cp -f ~/hosts.new /etc/hosts
+echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts > /dev/null
+echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts > /dev/null
